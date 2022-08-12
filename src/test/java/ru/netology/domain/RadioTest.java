@@ -73,7 +73,12 @@ class RadioTest {
 
     @Test
     public void shouldGetMinVolume() {
-        Assertions.assertEquals(100, radioNetology.getMinVolume());
+        Assertions.assertEquals(0, radioNetology.getMinVolume());
+    }
+
+    @Test
+    public void shouldGetMaxVolume() {
+        Assertions.assertEquals(100, radioNetology.getMaxVolume());
     }
 
     @Test
@@ -113,6 +118,6 @@ class RadioTest {
 
         radioNetology.setCurrentVolume(0);
         radioNetology.volumeDown();
-        Assertions.assertEquals(99, radioNetology.getCurrentVolume());
+        Assertions.assertEquals(100, radioNetology.getCurrentVolume());
     }
 }

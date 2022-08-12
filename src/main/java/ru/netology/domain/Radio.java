@@ -67,7 +67,7 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < maxVolume) {
+        if (currentVolume > maxVolume) {
             currentVolume = minVolume;
         }
         if (currentVolume < minVolume) {
@@ -93,11 +93,11 @@ public class Radio {
     }
 
     public void volumeUp() {
-        setCurrentVolume(currentVolume++);
+        setCurrentVolume(currentVolume + 1);
     }
 
     public void volumeDown() {
-        setCurrentVolume(currentVolume--);
+        setCurrentVolume(currentVolume - 1);
     }
 }
 

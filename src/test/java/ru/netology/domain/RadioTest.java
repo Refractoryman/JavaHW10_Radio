@@ -54,8 +54,8 @@ class RadioTest {
     public void shouldSetMaxRadioStation() {
         radioNetology.setMaxRadioStation(-1);
         radioNetology.setMaxRadioStation(0);
-        radioNetology.setMaxRadioStation(11);
-        Assertions.assertEquals(11, radioNetology.getMaxRadioStation());
+        radioNetology.setMaxRadioStation(10);
+        Assertions.assertEquals(10, radioNetology.getMaxRadioStation());
     }
 
     @Test
@@ -133,4 +133,5 @@ class RadioTest {
         radioNetology.volumeDown();
         Assertions.assertEquals(100, radioNetology.getCurrentVolume());
     }
+
 }

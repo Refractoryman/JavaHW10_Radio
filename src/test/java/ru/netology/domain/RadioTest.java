@@ -51,6 +51,19 @@ class RadioTest {
     }
 
     @Test
+    public void shouldSetMaxRadioStation() {
+        radioNetology.setMaxRadioStation(-1);
+        radioNetology.setMaxRadioStation(0);
+        radioNetology.setMaxRadioStation(11);
+        Assertions.assertEquals(11, radioNetology.getMaxRadioStation());
+    }
+
+    @Test
+    public void shouldGetToMinRadioStation() {
+        Assertions.assertEquals(0, radioNetology.getMinRadioStation());
+    }
+
+    @Test
     public void shouldSetMinRadioStation() {
         radioNetology.setMinRadioStation(0);
         radioNetology.setMinRadioStation(-1);

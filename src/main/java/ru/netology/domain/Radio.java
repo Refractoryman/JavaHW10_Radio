@@ -1,70 +1,48 @@
 package ru.netology.domain;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Data
 
 public class Radio {
-    private int currentRadioStation = 10;
+    private int currentStation = 10;
     private int maxRadioStation = 10;
     private int minRadioStation = 0;
     private int currentVolume;
     private int maxVolume = 100;
     private int minVolume = 0;
 
-    public Radio() {
+
+    public Radio(int generateNewStation) {
+        this.currentStation = generateNewStation;
+        maxRadioStation = generateNewStation - 1;
     }
 
-    public Radio(int currentStation) {
-        this.currentRadioStation = currentStation;
-        maxRadioStation = currentStation - 1;
-    }
-
-    public int getCurrentRadioStation() {
-        return currentRadioStation;
-    }
-
-    public void setCurrentRadioStation(int currentRadioStation) {
-        if (currentRadioStation > maxRadioStation) {
-            currentRadioStation = minRadioStation;
+    public void setCurrentStation(int currentStation) {
+        if (currentStation > maxRadioStation) {
+            currentStation = minRadioStation;
         }
-        if (currentRadioStation < minRadioStation) {
-            currentRadioStation = maxRadioStation;
+        if (currentStation < minRadioStation) {
+            currentStation = maxRadioStation;
         }
-        this.currentRadioStation = currentRadioStation;
+        this.currentStation = currentStation;
     }
 
-    public void nextRadioStation() {
-        if (currentRadioStation >= maxRadioStation) {
-            setCurrentRadioStation(minRadioStation);
+    public void pressNextStation() {
+        if (currentStation >= maxRadioStation) {
+            setCurrentStation(minRadioStation);
         } else {
-            setCurrentRadioStation(currentRadioStation + 1);
+            setCurrentStation(currentStation + 1);
         }
     }
 
-    public void prevRadioStation() {
-        if (currentRadioStation <= minRadioStation) {
-            setCurrentRadioStation(maxRadioStation);
+    public void pressPrevStation() {
+        if (currentStation <= minRadioStation) {
+            setCurrentStation(maxRadioStation);
         } else {
-            setCurrentRadioStation(currentRadioStation - 1);
+            setCurrentStation(currentStation - 1);
         }
-    }
-
-    public int getMaxRadioStation() {
-        return maxRadioStation;
-    }
-
-    public void setMaxRadioStation(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
-    }
-
-
-    public int getMinRadioStation() {
-        return minRadioStation;
-    }
-
-    public void setMinRadioStation(int minRadioStation) {
-        this.minRadioStation = minRadioStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
@@ -77,28 +55,11 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public void volumeUp() {
+    public void pressVolumeUp() {
         setCurrentVolume(currentVolume + 1);
     }
 
-    public void volumeDown() {
+    public void pressVolumeDown() {
         setCurrentVolume(currentVolume - 1);
     }
 }
